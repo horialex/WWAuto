@@ -18,7 +18,7 @@ public class ApiLoginSteps extends AbstractApiSteps {
 		Login loginRequest = LoginFactory.getLoginInstance();
 		User userResponse = createResource(ApiUrlConstants.LOGIN, loginRequest, User.class);
 		AbstractApiSteps.extraHeaders.put("Authorization", "Basic " + userResponse.getAuthenticationToken());
-
+		userResponse.setPassword(loginRequest.getUser().getPassword());
 		SessionUtils.putOnSession(SerenityKeyConstants.USER, userResponse);
 	}
 }

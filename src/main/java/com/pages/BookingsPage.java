@@ -3,6 +3,7 @@ package com.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import com.tools.entities.Booking;
 import com.tools.entities.Items;
@@ -16,6 +17,18 @@ public class BookingsPage extends AbstractPage {
 	WebElementFacade itemBookingsContainer;
 	@FindBy(css = "button#item-return-item")
 	WebElementFacade returnItemConfirmationPopup;
+	
+	@FindBy(css  = "ul[class*='nav nav-tabs'] a")
+	private List<WebElement> bookingsTabsList;
+	
+	public void selectBookingTab(String tabName) {
+		for(WebElement tab : bookingsTabsList) {
+			if(tab.getText().equalsIgnoreCase(tabName)) {
+				tab.click();
+				break;
+			}
+		}
+	}
 
 	// TODO la metodele astea nu as da parametru tot oboectul, si doar un string
 	// care sa reprezinte textul dupa care cauti. Nu e nici gresit daca nu

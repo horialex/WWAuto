@@ -13,7 +13,7 @@ public class ApiCreateItemFlowSteps {
     @Steps
     ApiItemsSteps apiItemsStepsSteps;
 
-    public void createItem(){
+    public void createItem() throws IllegalAccessException, InstantiationException{
         apiLoginStepsSteps.loginAsAdmin();
         apiCategoryStepsSteps.createCategory();
         apiItemsStepsSteps.createCategoryItem();

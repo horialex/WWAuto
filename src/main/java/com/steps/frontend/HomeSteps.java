@@ -2,6 +2,8 @@ package com.steps.frontend;
 
 import com.pages.HomePage;
 import com.steps.AbstractSteps;
+import com.tools.constants.EnvironmentConstants;
+
 import net.thucydides.core.annotations.Step;
 
 public class HomeSteps extends AbstractSteps {
@@ -13,5 +15,11 @@ public class HomeSteps extends AbstractSteps {
     @Step
     public void clickLogin(){
         homePage.clickLogin();
+    }
+    
+    @Step
+    public void getHomePage() {
+    	getDriver().get(EnvironmentConstants.BASE_URL);
+		getDriver().manage().window().maximize();
     }
 }

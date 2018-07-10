@@ -14,7 +14,6 @@ public class LoginSteps extends AbstractSteps {
 
 	private static final long serialVersionUID = 1L;
 
-	// TODO aici as vrea sa povestim un pic, despre steps in steps
 	@Steps
 	HomeSteps homeSteps;
 
@@ -28,25 +27,14 @@ public class LoginSteps extends AbstractSteps {
 	@StepGroup
 	public void login() {
 		User user = (User) SessionUtils.getFromSession(SerenityKeyConstants.USER);
-		navigate();
+		homeSteps.getHomePage();
 		homeSteps.clickLogin();
-		enterEmail(user.getEmail());
-		enterPassword(user.getPassword());
-		submit();
+		System.out.println("Password este : " + user.getPassword());
+		login(user.getEmail(), user.getPassword());
 	}
-
+	
 	@Step
-	public void enterEmail(String email) {
-		loginPage.enterEmail(email);
-	}
-
-	@Step
-	public void enterPassword(String password) {
-		loginPage.enterPassword(password);
-	}
-
-	@Step
-	public void submit() {
-		loginPage.submit();
+	public void login(String email, String password) {
+		loginPage.login(email, password);
 	}
 }

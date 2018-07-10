@@ -18,6 +18,10 @@ public class BookingsSteps extends AbstractSteps {
 	public void returnItem(){
         Booking booking = (Booking) SessionUtils.getFromSession(SerenityKeyConstants.BOOKING);
         bookingsPage.returnItem(booking);
-
+    }
+    
+    @Step
+    public void selectBookingsTab(String tabName) {
+    	bookingsPage.selectBookingTab(tabName);
     }
 }

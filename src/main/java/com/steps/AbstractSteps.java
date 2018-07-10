@@ -21,12 +21,4 @@ public class AbstractSteps extends ScenarioSteps {
 			return null;
 		}
 	}*/
-
-	//TODO navigheaza unde ? daca url-ul e fix, ca si in cazul atsa, denumiti sugestiv (navigateToBaseUrl)
-	//TODO nu e nici Abstract, nu are ce cauta aici 
-	public void navigate(){
-		getDriver().get(EnvironmentConstants.BASE_URL);
-		getDriver().manage().window().maximize();
-	}
-
 }

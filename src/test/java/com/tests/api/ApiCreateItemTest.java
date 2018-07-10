@@ -21,7 +21,7 @@ public class ApiCreateItemTest extends BaseTest {
     public ApiItemsSteps apiItemsStepsSteps;
 
     @Test
-    public void createCategoryItem() {
+    public void createCategoryItem() throws IllegalAccessException, InstantiationException {
         apiLoginStepsSteps.loginAsAdmin();
         apiCategoryStepsSteps.createCategory();
         apiItemsStepsSteps.createCategoryItem();

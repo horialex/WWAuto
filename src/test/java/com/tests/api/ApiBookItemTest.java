@@ -22,7 +22,7 @@ public class ApiBookItemTest extends BaseTest{
     public ApiBookingSteps apiBookingStepsSteps;
 
     @Test
-    public void apiBookItem() {
+    public void apiBookItem() throws IllegalAccessException, InstantiationException {
         apiLoginStepsSteps.loginAsAdmin();
         apiCategoryStepsSteps.createCategory();
         apiItemsStepsSteps.createCategoryItem();

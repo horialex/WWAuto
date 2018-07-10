@@ -1,12 +1,12 @@
 package com.tests.ui;
 
-import java.lang.reflect.InvocationTargetException;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.steps.api.flow_steps.ApiCreateItemFlowSteps;
+import com.steps.frontend.BookingsSteps;
+import com.steps.frontend.HeaderSteps;
 import com.steps.frontend.LoginSteps;
 import com.steps.frontend.flow_steps.ItemBookingSteps;
 import com.steps.validations.ItemValidationSteps;
@@ -25,19 +25,23 @@ public class BookItemTest extends BaseTest {
 	ItemBookingSteps itemBookingSteps;
 	@Steps
 	ApiCreateItemFlowSteps apiCreateItemFlowSteps;
+	@Steps
+	HeaderSteps headerSteps;
+	@Steps
+	BookingsSteps bookingSteps;
 
 	@Before
-	public void setUp() {
+	public void setUp() throws IllegalAccessException, InstantiationException {
 		apiCreateItemFlowSteps.createItem();
 	}
 
 	@Test
 	public void bookItemTest()
-			throws IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-
+			throws Exception {
 		loginSteps.login();
 		itemBookingSteps.bookItem();
-		itemBookingSteps.goToUser();
+		headerSteps.goTo("BOOKINGS");
+		bookingSteps.selectBookingsTab("My Bookings");
 		itemValidationSteps.validateItemIsBooked();
 	}
 }

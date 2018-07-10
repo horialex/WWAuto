@@ -29,7 +29,7 @@ public class ReturnItemTest extends BaseTest {
 	ApiBookingSteps apiBookingSteps;
 
 	@Before
-	public void setUp() {
+	public void setUp() throws IllegalAccessException, InstantiationException {
 		apiCreateItemFlowSteps.createItem();
 		apiBookingSteps.bookItem();
 	}

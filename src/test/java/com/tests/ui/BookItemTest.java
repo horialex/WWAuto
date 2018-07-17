@@ -38,7 +38,7 @@ public class BookItemTest extends BaseTest {
 	@Test
 	public void bookItemTest()
 			throws Exception {
-		loginSteps.login();
+		loginSteps.loginAsAdmin();
 		itemBookingSteps.bookItem();
 		headerSteps.goTo("BOOKINGS");
 		bookingSteps.selectBookingsTab("My Bookings");

@@ -44,6 +44,15 @@ public class AbstractApiSteps extends AbstractSteps{
 				.extract().as(responseClass);
 	}
 	
+	protected void deleteResource (String path, int id) {
+		given().relaxedHTTPSValidation()
+			.spec(getSpecWithExtraHeaders())
+			.when().delete(path + "/" + id)
+			.then()
+			.assertThat().statusCode(anyOf(is(201),is(204), is(200), is(302)))
+		    .extract().response().asString();
+	}
+	
 	protected static String createResource (String path, Object requestBody) {
 		return given()
 			.relaxedHTTPSValidation()
@@ -64,4 +73,14 @@ public class AbstractApiSteps extends AbstractSteps{
 			.then()
 			.assertThat().statusCode(anyOf(is(201),is(204), is(200), is(302)));
 	}
+	
+	protected static <T> T getResource (String path, Class<T> responseClass) {
+		return given().relaxedHTTPSValidation()
+				.spec(getSpecWithExtraHeaders())
+				.when().get(path)
+				.then()
+				.assertThat().statusCode(anyOf(is(201), is(200), is(302)))
+				.extract().as(responseClass);
+	}
+	
 }

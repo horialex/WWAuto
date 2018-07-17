@@ -25,5 +25,7 @@ public class ApiCreateItemTest extends BaseTest {
         apiLoginStepsSteps.loginAsAdmin();
         apiCategoryStepsSteps.createCategory();
         apiItemsStepsSteps.createCategoryItem();
+        
+        
     }
 }

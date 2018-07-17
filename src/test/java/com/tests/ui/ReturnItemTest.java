@@ -38,7 +38,7 @@ public class ReturnItemTest extends BaseTest {
 	public void returnItemTest()
 			throws IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 
-		loginSteps.login();
+		loginSteps.loginAsAdmin();
 		itemBookingSteps.goToUser();
 		itemBookingSteps.returnItem();
 		itemValidationSteps.validateItemIsReturned();

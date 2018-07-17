@@ -16,20 +16,12 @@ public class LoginSteps extends AbstractSteps {
 
 	@Steps
 	HomeSteps homeSteps;
-
 	LoginPage loginPage;
 
-	// TODO navigate to baseurl nu l-as baga in login, as face step separat
-	// inainte de login
-	// TODO nu cred ca e nevoie sa faci stepi separati pt enterEmail,
-	// enterPasswordm,submit.
-	// Faceti un step de login() care sa cheme 3 cele 3 metode direct din page.
 	@StepGroup
-	public void login() {
+	public void loginAsAdmin() {
 		User user = (User) SessionUtils.getFromSession(SerenityKeyConstants.USER);
-		homeSteps.getHomePage();
 		homeSteps.clickLogin();
-		System.out.println("Password este : " + user.getPassword());
 		login(user.getEmail(), user.getPassword());
 	}
 	

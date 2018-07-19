@@ -7,8 +7,8 @@ import net.serenitybdd.core.Serenity;
 
 public class SessionUtils {
 
-	public static Object getFromSession(String key) {
-		return Serenity.getCurrentSession().get(key);
+	public static <T> T getFromSession(String key) {
+		return (T) Serenity.getCurrentSession().get(key);
 	}
 
 	public static void putOnSession(String key, Object object) {

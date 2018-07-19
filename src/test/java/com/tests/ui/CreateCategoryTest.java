@@ -34,6 +34,7 @@ public class CreateCategoryTest extends BaseTest {
 	@Before
 	public void testPreparation() throws Exception {
 		apiLoginStepsSteps.loginAsAdmin();
+		apiCategoryStepsSteps.removeAllCategories();
 		apiCategoryStepsSteps.createCategory();
 		
 	}

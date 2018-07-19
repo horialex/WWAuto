@@ -24,8 +24,10 @@ public class CategorySteps extends AbstractSteps {
 
     @Step
 	public void verifyCategoryIsPresent() {
-    	Category category =  (Category) SessionUtils.getFromSession(SerenityKeyConstants.CATEGORY);
-    	categoriesPage.categoryExists(category.getName(), true);
+    	List<Category> categoriesList =   SessionUtils.getFromSession(SerenityKeyConstants.CATEGORY);
+		categoriesList.forEach(s -> {
+			categoriesPage.categoryExists(s.getName(), true);
+		});	
 	}
     
     @Step
@@ -35,7 +37,7 @@ public class CategorySteps extends AbstractSteps {
 	}
 
 	public void verifyCategoriesArePresent() {
-		List<Category> categoriesList = (List<Category>) SessionUtils.getFromSession(SerenityKeyConstants.CATEGORY);
+		List<Category> categoriesList =   SessionUtils.getFromSession(SerenityKeyConstants.CATEGORY);
 		categoriesList.forEach(s -> {
 			categoriesPage.categoryExists(s.getName(), true);
 		});	

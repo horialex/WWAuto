@@ -34,9 +34,8 @@ public class CreateMultipleCategoriesTest extends BaseTest {
 	@Before
 	public void testPreparation() throws Exception {
 		apiLoginStepsSteps.loginAsAdmin();
-		apiCategoryStepsSteps.createMultipleCategories(3);
-//		apiCategoryStepsSteps.createCategory();
-//		apiCategoryStepsSteps.createCategory();
+		apiCategoryStepsSteps.createCategory();
+		apiCategoryStepsSteps.createCategory();
 	}
 
 	@Test

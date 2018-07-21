@@ -12,6 +12,7 @@ import com.steps.frontend.HeaderSteps;
 import com.steps.frontend.HomeSteps;
 import com.steps.frontend.ItemSteps;
 import com.steps.frontend.LoginSteps;
+import com.steps.frontend.flow_steps.ItemBookingSteps;
 import com.tests.BaseTest;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
@@ -36,6 +37,9 @@ public class CreateMultipleItemsInSameCategoryTest extends BaseTest {
 	ApiItemsSteps apiItemsStepsSteps;
 	@Steps
 	ItemSteps itemSteps;
+	@Steps
+	ItemBookingSteps itemBookingSteps;
+	
 	
 	@Before
 	public void testPreparation() throws Exception {
@@ -53,6 +57,7 @@ public class CreateMultipleItemsInSameCategoryTest extends BaseTest {
 		headerSteps.goTo("ITEMS");
 		categorySteps.selectCategory();
 		itemSteps.verifyItemsArePresent();
+		itemBookingSteps.bookItemsFromCategory();
 	}
 
 }

@@ -3,7 +3,6 @@ package com.pages;
 import org.openqa.selenium.WebElement;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
-import net.serenitybdd.core.pages.WebElementFacade;
 
 public class LoginPage extends AbstractPage {
 

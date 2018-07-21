@@ -12,6 +12,7 @@ import com.steps.frontend.HeaderSteps;
 import com.steps.frontend.HomeSteps;
 import com.steps.frontend.ItemSteps;
 import com.steps.frontend.LoginSteps;
+import com.steps.frontend.flow_steps.ItemFlowSteps;
 import com.tests.BaseTest;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
@@ -36,6 +37,8 @@ public class CreateMultipleItemsInDifferentCategoriesTest extends BaseTest {
 	ApiItemsSteps apiItemsStepsSteps;
 	@Steps
 	ItemSteps itemSteps;
+	@Steps
+	ItemFlowSteps itemFlowSteps;
 	
 	@Before
 	public void testPreparation() throws Exception {
@@ -51,9 +54,7 @@ public class CreateMultipleItemsInDifferentCategoriesTest extends BaseTest {
 	public void createMultipleItemsTest() {
 		homePageSteps.getHomePage();
 		loginSteps.loginAsAdmin();
-		headerSteps.goTo("ITEMS");
-		//TO DO - creeaza o metoda care verifica ca itemele exista si merge in
-		//ce categorie apartine item-ul respectiv
+		itemFlowSteps.verifyItemsAreCreated();
 	}
 
 }

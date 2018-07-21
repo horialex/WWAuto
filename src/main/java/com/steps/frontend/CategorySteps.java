@@ -21,6 +21,11 @@ public class CategorySteps extends AbstractSteps {
 		Category category = SessionUtils.getFromSession(SerenityKeyConstants.CATEGORY);
 		categoriesPage.selectCategory(category.getName());
 	}
+	
+	@Step
+	public void selectCategory(String categoryName) {
+		categoriesPage.selectCategory(categoryName);
+	}
 
 	@Step
 	public void verifyCategoryIsPresent() {

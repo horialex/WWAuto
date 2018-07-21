@@ -12,16 +12,18 @@ public class BookingFactory {
 
 	public static Booking getBookingInstance() {
 		Booking booking = new Booking();
+		
 		booking.setBookingStatus(EntityConstants.ACCEPTED);
 		booking.setStartDate(FieldGenerator.getDate(0) + ", " + FieldGenerator.getHour(5));
 		booking.setEndDate(FieldGenerator.getDate(1) + ", " + FieldGenerator.getHour(30));
-		booking.setItem(new Item());
+		
+//		booking.setItem(new Item());
 		booking.setUser(new User());
 
-		Item sessionItem = (Item) SessionUtils.getFromSession(SerenityKeyConstants.ITEM);
-		User sessionUser = (User) SessionUtils.getFromSession(SerenityKeyConstants.USER);
+//		Item sessionItem =  SessionUtils.getFromSession(SerenityKeyConstants.ITEM);
+		User sessionUser =  SessionUtils.getFromSession(SerenityKeyConstants.USER);
 
-		booking.getItem().setTitle(sessionItem.getTitle());
+//		booking.getItem().setTitle(sessionItem.getTitle());
 		booking.getUser().setName(sessionUser.getName());
 
 		return booking;

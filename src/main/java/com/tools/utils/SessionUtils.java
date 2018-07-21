@@ -7,6 +7,7 @@ import net.serenitybdd.core.Serenity;
 
 public class SessionUtils {
 
+	@SuppressWarnings("unchecked")
 	public static <T> T getFromSession(String key) {
 		return (T) Serenity.getCurrentSession().get(key);
 	}
@@ -15,6 +16,7 @@ public class SessionUtils {
 		Serenity.getCurrentSession().put(key, object);
 	}
 
+	@SuppressWarnings("unchecked")
 	public static void saveObjectListInSerenitySession(String key, Object obj) {
 		if (!Serenity.getCurrentSession().containsKey(key)) {
 			Serenity.getCurrentSession().put(key, new ArrayList<>());

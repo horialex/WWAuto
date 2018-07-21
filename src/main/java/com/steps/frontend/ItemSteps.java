@@ -27,6 +27,11 @@ public class ItemSteps extends AbstractSteps {
 	}
 	
 	@Step
+	public void verifyItemIsPresent(String itemTitle) {
+		itemsPage.itemExists(itemTitle, true);
+	}
+	
+	@Step
 	public void verifyItemIsNotPresent() {
 		List<Item> items =  SessionUtils.getFromSession(SerenityKeyConstants.ITEM);
 		itemsPage.itemExists(items.get(0).getTitle(), false);
@@ -43,6 +48,19 @@ public class ItemSteps extends AbstractSteps {
 	
 	// TODO eu nici aici nu as chema stepi, ci direct din page metodele.Se
 	// pierde mult timp cu Starting Step--EndingStep
+	@StepGroup
+	public void bookItem(Item item) {
+		Booking booking = BookingFactory.getBookingInstance();
+		booking.setItem(item);
+		itemsPage.clickBookItem(item.getTitle());
+		itemsPage.selectStartDate(booking.getStartDate());
+		itemsPage.selectStartHour(booking.getStartDate());
+		itemsPage.selectEndDate(booking.getEndDate());
+		itemsPage.selectEndHour(booking.getEndDate());
+		itemsPage.saveBooking();
+		SessionUtils.putOnSession(SerenityKeyConstants.BOOKING, booking);
+	}
+	
 	@StepGroup
 	public void bookItem() {
 		Booking booking = BookingFactory.getBookingInstance();

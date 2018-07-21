@@ -1,7 +1,5 @@
 package com.steps;
 
-import com.tools.constants.EnvironmentConstants;
-
 import net.thucydides.core.steps.ScenarioSteps;
 
 public class AbstractSteps extends ScenarioSteps {

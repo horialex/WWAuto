@@ -21,7 +21,7 @@ public class ApiBookingSteps extends AbstractApiSteps {
 		Booking bookingResponse = createResource(ApiUrlConstants.BOOKINGS, bookingRequest, Booking.class);
 		bookingResponse.setStartDate(DateFormatter.formatDate(bookingResponse.getStartDate()));
 		bookingResponse.setEndDate(DateFormatter.formatDate(bookingResponse.getEndDate()));
-		Booking bookingRequestHydrated = MergeUtils.mergeObjects(bookingRequest, bookingResponse);
-		SessionUtils.putOnSession(SerenityKeyConstants.BOOKING, bookingRequestHydrated);
+		bookingRequest = MergeUtils.mergeObjects(bookingRequest, bookingResponse);
+		SessionUtils.putOnSession(SerenityKeyConstants.BOOKING, bookingRequest);
 	}
 }

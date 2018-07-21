@@ -1,10 +1,7 @@
 package com.steps.api;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import org.junit.experimental.categories.Categories;
 
 import com.tools.constants.ApiUrlConstants;
 import com.tools.constants.SerenityKeyConstants;
@@ -50,7 +47,7 @@ public class ApiCategorySteps extends AbstractApiSteps {
 
 	@Step
 	public void howManyCategories() {
-		List<Category> categoriesList = (List<Category>) SessionUtils.getFromSession(SerenityKeyConstants.CATEGORY);
+		List<Category> categoriesList =  SessionUtils.getFromSession(SerenityKeyConstants.CATEGORY);
 		System.out.println("Categories list size " + categoriesList.size());
 	}
 	

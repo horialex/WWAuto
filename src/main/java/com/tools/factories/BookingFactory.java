@@ -3,7 +3,7 @@ package com.tools.factories;
 import com.tools.constants.EntityConstants;
 import com.tools.constants.SerenityKeyConstants;
 import com.tools.entities.Booking;
-import com.tools.entities.Items;
+import com.tools.entities.Item;
 import com.tools.entities.User;
 import com.tools.utils.FieldGenerator;
 import com.tools.utils.SessionUtils;
@@ -15,10 +15,10 @@ public class BookingFactory {
 		booking.setBookingStatus(EntityConstants.ACCEPTED);
 		booking.setStartDate(FieldGenerator.getDate(0) + ", " + FieldGenerator.getHour(5));
 		booking.setEndDate(FieldGenerator.getDate(1) + ", " + FieldGenerator.getHour(30));
-		booking.setItem(new Items());
+		booking.setItem(new Item());
 		booking.setUser(new User());
 
-		Items sessionItem = (Items) SessionUtils.getFromSession(SerenityKeyConstants.ITEM);
+		Item sessionItem = (Item) SessionUtils.getFromSession(SerenityKeyConstants.ITEM);
 		User sessionUser = (User) SessionUtils.getFromSession(SerenityKeyConstants.USER);
 
 		booking.getItem().setTitle(sessionItem.getTitle());
@@ -31,7 +31,7 @@ public class BookingFactory {
 		
 		Booking booking = new Booking();
 
-		Items itemsRequest = (Items) SessionUtils.getFromSession(SerenityKeyConstants.ITEM);
+		Item itemsRequest = (Item) SessionUtils.getFromSession(SerenityKeyConstants.ITEM);
 		User userRequest = (User) SessionUtils.getFromSession(SerenityKeyConstants.USER);
 
 		booking.setItemId(itemsRequest.getId());

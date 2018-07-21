@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.tools.entities.Booking;
-import com.tools.entities.Items;
+import com.tools.entities.Item;
 import com.tools.entities.User;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
@@ -83,7 +83,7 @@ public class BookingsPage extends AbstractPage {
 						.trim();
 				User user = new User();
 				user.setName(userName);
-				Items item = new Items();
+				Item item = new Item();
 				item.setTitle(actualItemName);
 				bookingModel.setBookingStatus(booking.find(By.cssSelector(".status-label")).getText());
 				bookingModel.setStartDate(from);

@@ -35,7 +35,7 @@ public class ApiCategorySteps extends AbstractApiSteps {
 		Category categoryRequest = CategoryFactory.getCategoryInstance();
 		Category categoryResponse = createResource(ApiUrlConstants.CATEGORIES, categoryRequest, Category.class);
 		categoryRequest = MergeUtils.mergeObjects(categoryRequest, categoryResponse);
-		SessionUtils.saveObjectListInSerenitySession(SerenityKeyConstants.CATEGORY, categoryRequest);
+		SessionUtils.putOnSession(SerenityKeyConstants.CATEGORY, categoryRequest);
 	}
 	
 	@Step

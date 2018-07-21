@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 public class CategoriesPage extends AbstractPage {
+
 	@FindBy(css = "ul#categories_container")
 	WebElementFacade categoriesContainer;
 

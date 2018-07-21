@@ -11,37 +11,34 @@ import com.tools.utils.SessionUtils;
 import net.thucydides.core.annotations.Step;
 
 public class CategorySteps extends AbstractSteps {
-    
+
 	private static final long serialVersionUID = 1L;
-	
+
 	CategoriesPage categoriesPage;
 
-    @Step
-    public void selectCategory(){
-        Category category =  (Category) SessionUtils.getFromSession(SerenityKeyConstants.CATEGORY);
-        categoriesPage.selectCategory(category.getName());
-    }
-
-    @Step
-	public void verifyCategoryIsPresent() {
-    	List<Category> categoriesList =   SessionUtils.getFromSession(SerenityKeyConstants.CATEGORY);
-		categoriesList.forEach(s -> {
-			categoriesPage.categoryExists(s.getName(), true);
-		});	
+	@Step
+	public void selectCategory() {
+		Category category = SessionUtils.getFromSession(SerenityKeyConstants.CATEGORY);
+		categoriesPage.selectCategory(category.getName());
 	}
-    
-    @Step
-    public void verifyCategoryIsNotPresent() {
-    	Category category =  (Category) SessionUtils.getFromSession(SerenityKeyConstants.CATEGORY);
-    	categoriesPage.categoryExists(category.getName(), false);
+
+	@Step
+	public void verifyCategoryIsPresent() {
+		Category category = SessionUtils.getFromSession(SerenityKeyConstants.CATEGORY);
+		categoriesPage.categoryExists(category.getName(), true);
+	}
+
+	@Step
+	public void verifyCategoryIsNotPresent() {
+		Category category =  SessionUtils.getFromSession(SerenityKeyConstants.CATEGORY);
+		categoriesPage.categoryExists(category.getName(), false);
 	}
 
 	public void verifyCategoriesArePresent() {
-		List<Category> categoriesList =   SessionUtils.getFromSession(SerenityKeyConstants.CATEGORY);
+		List<Category> categoriesList = SessionUtils.getFromSession(SerenityKeyConstants.CATEGORY);
 		categoriesList.forEach(s -> {
 			categoriesPage.categoryExists(s.getName(), true);
-		});	
+		});
 	}
-    
-    
+
 }

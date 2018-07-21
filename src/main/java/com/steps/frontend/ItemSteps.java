@@ -1,9 +1,12 @@
 package com.steps.frontend;
 
+import java.util.List;
+
 import com.pages.ItemsPage;
 import com.steps.AbstractSteps;
 import com.tools.constants.SerenityKeyConstants;
 import com.tools.entities.Booking;
+import com.tools.entities.Item;
 import com.tools.factories.BookingFactory;
 import com.tools.utils.SessionUtils;
 
@@ -16,6 +19,28 @@ public class ItemSteps extends AbstractSteps {
 
 	ItemsPage itemsPage;
 
+	
+	@Step
+	public void verifyItemIsPresent() {
+		List<Item> items =  SessionUtils.getFromSession(SerenityKeyConstants.ITEM);
+		itemsPage.itemExists(items.get(0).getTitle(), true);
+	}
+	
+	@Step
+	public void verifyItemIsNotPresent() {
+		List<Item> items =  SessionUtils.getFromSession(SerenityKeyConstants.ITEM);
+		itemsPage.itemExists(items.get(0).getTitle(), false);
+	}
+	
+	@Step
+	public void verifyItemsArePresent() {
+		List<Item> items =  SessionUtils.getFromSession(SerenityKeyConstants.ITEM);
+		items.forEach(s -> {
+			itemsPage.itemExists(s.getTitle(), true);
+		});
+	}
+	
+	
 	// TODO eu nici aici nu as chema stepi, ci direct din page metodele.Se
 	// pierde mult timp cu Starting Step--EndingStep
 	@StepGroup

@@ -16,6 +16,6 @@ public class ApiCreateItemFlowSteps {
     public void createItem() throws IllegalAccessException, InstantiationException{
         apiLoginStepsSteps.loginAsAdmin();
         apiCategoryStepsSteps.createCategory();
-        apiItemsStepsSteps.createCategoryItem();
+        apiItemsStepsSteps.createItem();
     }
 }

@@ -12,7 +12,7 @@ public class Booking {
     private int userId;
     private String clientTime;
     private int id;
-    private Items item;
+    private Item item;
     private User user;
     private String bookingStatus;
 
@@ -34,11 +34,11 @@ public class Booking {
     }
 
     @JsonProperty("item")
-    public Items getItem() {
+    public Item getItem() {
         return item;
     }
 
-    public void setItem(Items item) {
+    public void setItem(Item item) {
         this.item = item;
     }
 

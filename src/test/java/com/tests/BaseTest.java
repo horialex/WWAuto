@@ -10,7 +10,7 @@ public class BaseTest {
 
 	@Before
 	public void setup() {
-		System.setProperty("webdriver.chrome.driver", "/var/www/WWAuto/src/test/resources/drivers/chromedriverLinux");
+//		System.setProperty("webdriver.chrome.driver", "/var/www/WWAuto/src/test/resources/drivers/chromedriverLinux");
 		System.setProperty("http.proxyHost", "localhost");
 		System.setProperty("http.proxyPort", "8080");
 		System.setProperty("https.proxyHost", "localhost");

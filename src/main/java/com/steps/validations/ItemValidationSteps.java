@@ -34,8 +34,8 @@ public class ItemValidationSteps {
 		Booking actualdBooking = bookingsPage.getBookingModel(expectedBooking);
 		valdiateItemBooking(expectedBooking, actualdBooking);
 
-		// bookingsPage.verifyObjectsIgnoreNull(expectedBooking,
-		// actualdBooking);
+		 bookingsPage.verifyObjectsIgnoreNull(expectedBooking,
+		 actualdBooking);
 	}
 
 	private void valdiateItemBooking(Booking expectedBooking, Booking actualdBooking) {

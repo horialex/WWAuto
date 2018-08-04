@@ -22,8 +22,6 @@ public class ItemValidationSteps {
 		Booking expectedBooking = SessionUtils.getFromSession(SerenityKeyConstants.BOOKING);
 		Booking actualdBooking = bookingsPage.getBookingModel(expectedBooking);
 		valdiateItemBooking(expectedBooking, actualdBooking);
-		// bookingsPage.verifyObjectsIgnoreNull(expectedBooking,
-		// actualdBooking);
 	}
 
 	@Step
@@ -33,9 +31,7 @@ public class ItemValidationSteps {
 		expectedBooking.setEndDate(FieldGenerator.getCurrentDate());
 		Booking actualdBooking = bookingsPage.getBookingModel(expectedBooking);
 		valdiateItemBooking(expectedBooking, actualdBooking);
-
-		 bookingsPage.verifyObjectsIgnoreNull(expectedBooking,
-		 actualdBooking);
+		bookingsPage.verifyObjectsIgnoreNull(expectedBooking, actualdBooking);
 	}
 
 	private void valdiateItemBooking(Booking expectedBooking, Booking actualdBooking) {

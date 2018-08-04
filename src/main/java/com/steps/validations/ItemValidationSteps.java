@@ -19,12 +19,11 @@ public class ItemValidationSteps {
 	@Step
 	public void validateItemIsBooked()
 			throws IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-		Booking expectedBooking = (Booking) SessionUtils.getFromSession(SerenityKeyConstants.BOOKING);
+		Booking expectedBooking = SessionUtils.getFromSession(SerenityKeyConstants.BOOKING);
 		Booking actualdBooking = bookingsPage.getBookingModel(expectedBooking);
-		valdiateItem(expectedBooking,actualdBooking);
-
-//		 bookingsPage.verifyObjectsIgnoreNull(expectedBooking,
-//		 actualdBooking);
+		valdiateItemBooking(expectedBooking, actualdBooking);
+		// bookingsPage.verifyObjectsIgnoreNull(expectedBooking,
+		// actualdBooking);
 	}
 
 	@Step
@@ -33,13 +32,13 @@ public class ItemValidationSteps {
 		Booking expectedBooking = (Booking) SessionUtils.getFromSession(SerenityKeyConstants.BOOKING);
 		expectedBooking.setEndDate(FieldGenerator.getCurrentDate());
 		Booking actualdBooking = bookingsPage.getBookingModel(expectedBooking);
-		valdiateItem(expectedBooking,actualdBooking);
+		valdiateItemBooking(expectedBooking, actualdBooking);
 
 		// bookingsPage.verifyObjectsIgnoreNull(expectedBooking,
 		// actualdBooking);
 	}
 
-	private void valdiateItem(Booking expectedBooking, Booking actualdBooking) {
+	private void valdiateItemBooking(Booking expectedBooking, Booking actualdBooking) {
 		SoftValidation.verifyStringValues("booking status", expectedBooking.getBookingStatus(),
 				actualdBooking.getBookingStatus());
 		SoftValidation.verifyStringValues("end date", expectedBooking.getEndDate(), actualdBooking.getEndDate());

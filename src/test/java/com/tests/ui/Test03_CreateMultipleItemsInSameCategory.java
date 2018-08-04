@@ -9,7 +9,7 @@ import com.steps.api.ApiItemsSteps;
 import com.steps.api.ApiLoginSteps;
 import com.steps.frontend.CategorySteps;
 import com.steps.frontend.HeaderSteps;
-import com.steps.frontend.HomeSteps;
+import com.steps.frontend.HomePageSteps;
 import com.steps.frontend.ItemSteps;
 import com.steps.frontend.LoginSteps;
 import com.steps.frontend.flow_steps.ItemBookingSteps;
@@ -19,7 +19,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 
 @RunWith(SerenityRunner.class)
-public class CreateMultipleItemsInSameCategoryTest extends BaseTest {
+public class Test03_CreateMultipleItemsInSameCategory extends BaseTest {
 
 	@Steps
 	LoginSteps loginSteps;
@@ -32,7 +32,7 @@ public class CreateMultipleItemsInSameCategoryTest extends BaseTest {
 	@Steps
 	CategorySteps categorySteps;
 	@Steps
-	HomeSteps homePageSteps;
+	HomePageSteps homePageSteps;
 	@Steps
 	ApiItemsSteps apiItemsStepsSteps;
 	@Steps
@@ -57,7 +57,6 @@ public class CreateMultipleItemsInSameCategoryTest extends BaseTest {
 		headerSteps.goTo("ITEMS");
 		categorySteps.selectCategory();
 		itemSteps.verifyItemsArePresent();
-		itemBookingSteps.bookItemsFromCategory();
 	}
 
 }

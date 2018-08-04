@@ -6,7 +6,7 @@ import com.tools.constants.EnvironmentConstants;
 
 import net.thucydides.core.annotations.Step;
 
-public class HomeSteps extends AbstractSteps {
+public class HomePageSteps extends AbstractSteps {
 	
 	private static final long serialVersionUID = 1L;
 	

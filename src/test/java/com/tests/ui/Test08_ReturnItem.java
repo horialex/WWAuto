@@ -1,22 +1,22 @@
 package com.tests.ui;
 
+import com.steps.api.ApiBookingSteps;
+import com.steps.api.flow_steps.ApiCreateItemFlowSteps;
+import com.steps.frontend.*;
+import com.steps.frontend.flow_steps.ItemBookingSteps;
+import com.steps.validations.ItemValidationSteps;
+import com.tests.BaseTest;
+import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Steps;
+
+import java.lang.reflect.InvocationTargetException;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.steps.api.flow_steps.ApiCreateItemFlowSteps;
-import com.steps.frontend.BookingsSteps;
-import com.steps.frontend.HeaderSteps;
-import com.steps.frontend.LoginSteps;
-import com.steps.frontend.flow_steps.ItemBookingSteps;
-import com.steps.validations.ItemValidationSteps;
-import com.tests.BaseTest;
-
-import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Steps;
-
 @RunWith(SerenityRunner.class)
-public class BookItemTest extends BaseTest {
+public class Test08_ReturnItem extends BaseTest {
 	@Steps
 	LoginSteps loginSteps;
 	@Steps
@@ -26,22 +26,21 @@ public class BookItemTest extends BaseTest {
 	@Steps
 	ApiCreateItemFlowSteps apiCreateItemFlowSteps;
 	@Steps
-	HeaderSteps headerSteps;
-	@Steps
-	BookingsSteps bookingSteps;
+	ApiBookingSteps apiBookingSteps;
 
 	@Before
 	public void setUp() throws IllegalAccessException, InstantiationException {
 		apiCreateItemFlowSteps.createItem();
+		apiBookingSteps.bookItem();
 	}
 
 	@Test
-	public void bookItemTest()
-			throws Exception {
+	public void returnItemTest()
+			throws IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+
 		loginSteps.loginAsAdmin();
-		itemBookingSteps.bookItem();
-		headerSteps.goTo("BOOKINGS");
-		bookingSteps.selectBookingsTab("My Bookings");
-		itemValidationSteps.validateItemIsBooked();
+		itemBookingSteps.goToUser();
+		itemBookingSteps.returnItem();
+		itemValidationSteps.validateItemIsReturned();
 	}
 }

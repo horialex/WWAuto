@@ -15,7 +15,7 @@ public class LoginSteps extends AbstractSteps {
 	private static final long serialVersionUID = 1L;
 
 	@Steps
-	HomeSteps homeSteps;
+	HomePageSteps homeSteps;
 	LoginPage loginPage;
 
 	@StepGroup

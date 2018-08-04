@@ -8,7 +8,7 @@ import com.steps.api.ApiCategorySteps;
 import com.steps.api.ApiLoginSteps;
 import com.steps.frontend.CategorySteps;
 import com.steps.frontend.HeaderSteps;
-import com.steps.frontend.HomeSteps;
+import com.steps.frontend.HomePageSteps;
 import com.steps.frontend.LoginSteps;
 import com.tests.BaseTest;
 
@@ -16,7 +16,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 
 @RunWith(SerenityRunner.class)
-public class CreateCategoryTest extends BaseTest {
+public class Test02_CreateCategory extends BaseTest {
 
 	@Steps
 	LoginSteps loginSteps;
@@ -29,12 +29,12 @@ public class CreateCategoryTest extends BaseTest {
 	@Steps
 	CategorySteps categorySteps;
 	@Steps
-	HomeSteps homePageSteps;
+	HomePageSteps homePageSteps;
 
 	@Before
 	public void testPreparation() throws Exception {
 		apiLoginStepsSteps.loginAsAdmin();
-		apiCategoryStepsSteps.removeAllCategories();
+//		apiCategoryStepsSteps.removeAllCategories();
 		apiCategoryStepsSteps.createCategory();
 		
 	}

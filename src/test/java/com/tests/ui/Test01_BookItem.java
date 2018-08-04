@@ -1,22 +1,24 @@
 package com.tests.ui;
 
-import com.steps.api.ApiBookingSteps;
-import com.steps.api.flow_steps.ApiCreateItemFlowSteps;
-import com.steps.frontend.*;
-import com.steps.frontend.flow_steps.ItemBookingSteps;
-import com.steps.validations.ItemValidationSteps;
-import com.tests.BaseTest;
-import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Steps;
-
-import java.lang.reflect.InvocationTargetException;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import com.steps.api.flow_steps.ApiCreateItemFlowSteps;
+import com.steps.frontend.BookingsSteps;
+import com.steps.frontend.HeaderSteps;
+import com.steps.frontend.HomePageSteps;
+import com.steps.frontend.LoginSteps;
+import com.steps.frontend.flow_steps.ItemBookingSteps;
+import com.steps.validations.ItemValidationSteps;
+import com.tests.BaseTest;
+
+import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Steps;
+
 @RunWith(SerenityRunner.class)
-public class ReturnItemTest extends BaseTest {
+public class Test01_BookItem extends BaseTest {
+	
 	@Steps
 	LoginSteps loginSteps;
 	@Steps
@@ -26,21 +28,24 @@ public class ReturnItemTest extends BaseTest {
 	@Steps
 	ApiCreateItemFlowSteps apiCreateItemFlowSteps;
 	@Steps
-	ApiBookingSteps apiBookingSteps;
+	HeaderSteps headerSteps;
+	@Steps
+	BookingsSteps bookingSteps;
+	@Steps
+	HomePageSteps homePageSteps;
 
 	@Before
 	public void setUp() throws IllegalAccessException, InstantiationException {
-		apiCreateItemFlowSteps.createItem();
-		apiBookingSteps.bookItem();
+		 apiCreateItemFlowSteps.createItem();
 	}
 
 	@Test
-	public void returnItemTest()
-			throws IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-
+	public void bookItemTest() throws Exception {
+		homePageSteps.getHomePage();
 		loginSteps.loginAsAdmin();
-		itemBookingSteps.goToUser();
-		itemBookingSteps.returnItem();
-		itemValidationSteps.validateItemIsReturned();
+		itemBookingSteps.bookItem();
+		headerSteps.goTo("BOOKINGS");
+		bookingSteps.selectBookingsTab("My Bookings");
+		itemValidationSteps.validateItemIsBooked();
 	}
 }

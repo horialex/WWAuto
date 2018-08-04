@@ -60,19 +60,6 @@ public class ItemsPage extends AbstractPage {
 		}
 	}
 
-	// public void clickBookItem(String itemName) {
-	// List<WebElementFacade> itemList = itemsContainer
-	// .thenFindAll(By.cssSelector("div[class='white-box clearfix single-item']"));
-	// for (WebElementFacade item : itemList) {
-	// String it = item.findBy(By.cssSelector("h3 a")).getText().trim();
-	// if (it.contentEquals(itemName)) {
-	// WebElementFacade bookButton = item.find(By.cssSelector("button"));
-	// bookButton.click();
-	// break;
-	// }
-	// }
-	// }
-
 	public void clickBookItem(String itemName) {
 		getItem(itemName).findElement(By.cssSelector("button")).click();
 	}
@@ -118,7 +105,6 @@ public class ItemsPage extends AbstractPage {
 		String providedYear = date.split(",")[0].split(" ")[2];
 		String displayedYear = datePickerContainer.find(By.cssSelector("div.datepicker-months thead th.picker-switch"))
 				.getText();
-		System.out.println(displayedYear);
 		int noOfNext = Integer.valueOf(providedYear) - Integer.valueOf(displayedYear);
 		for (int i = 0; i < noOfNext; i++) {
 			displayedYear = datePickerContainer.find(By.cssSelector("div.datepicker-months thead th.picker-switch"))
